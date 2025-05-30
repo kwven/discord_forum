@@ -55,3 +55,15 @@ time.sleep(5)
 WebDriverWait(driver, 20).until(
         EC.presence_of_element_located((By.CSS_SELECTOR, "div[class*='container']"))
 )
+time.sleep(4)
+#click tout button 
+tout_buttons = driver.find_elements(By.CSS_SELECTOR, "button[class*='tagsButton']")
+for button in tout_buttons:
+        time.sleep(3)
+        if button.is_displayed():
+                driver.execute_script("arguments[0].click();", button)
+                time.sleep(2)
+                print(f"Clicked on tout button")
+                break
+time.sleep(3)
+
